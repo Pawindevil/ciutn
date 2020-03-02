@@ -15,18 +15,27 @@ var minimo=0;
 var letra;
 var respuesta="si";
 var suma=0;
+var flag=0;
 do{
-    letra=prompt("Ingrese una letra en minuscula");
+    letra=prompt("Ingrese una letra ");
+   /* while((letra>='a' ||letra<='z')&&(letra>='A' ||letra<='Z')){
+prompt("letra invalida, ingrese letra.")
+    }*/
     numero =parseInt (prompt("Ingrese un numero"));
+    while(numero<-100||numero>100 || isNaN(numero)){
+numero=parseInt(prompt("Numero invalido, ingrese numero entre -100 y 100"));
+    }
+    
     contador++
     
-    if(numero>maximo){
+    if(flag==0||numero>maximo){
         maximo=numero;
         letraMax=letra;
     }
-    if(numero<minimo){
+    if(flag==0||numero<minimo){
         minimo=numero;
         letraMin=letra;
+        flag=1
     }
     
     if(numero%2==0){
